@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="css/reset.css">
+		<style type="text/css">
+		    html {
+		        width: 100%;
+				height: 100%;
+				overflow-x: hidden;
+		    }
+			body {
+			    text-align: left;
+			    width: 100%;
+			    overflow: hidden;
+			    background: #e9dfc7;
+			}
+			.m-read-content {
+			  font-size: 14px; 
+			  color: #555;
+			  line-height: 31px;
+			  padding: 15px;
+                			  
+			}
+			.m-read-content h4 {
+			    font-size: 20px;
+			    color: #736357;
+			    border-bottom: 1px solid #736357;
+			    letter-spacing: 2px;
+			    margin: 0 0 1em 0;
+			}
+			.m-read-content p {
+			    text-indent: 2em;
+			    margin: 0.5em 0;
+			    letter-spacing: 0px;
+			    line-height: 24px;
+			}
+			.m-button-bar {
+			    width: 70%;
+			    max-width: 800px;
+			    padding: 5px;
+			    margin: 0 auto;
+			}
+			.m-button-bar .u-tab {
+			    height: 34px;
+			    margin: 10px auto;
+			    line-height: 34px;
+			    border-radius: 8px;
+			    border: 1px solid #858382;
+			    font-size: 12px;
+			    background: #000;
+			    opacity: 0.9;
+			}
+			.m-button-bar .u-tab li {
+			    display: inline-block;
+			    width: 49%;
+			    border-right: 1px solid #858382;
+			    text-align: center;
+			    color: #fff;
+			}
+			.m-button-bar .u-tab li:nth-child(2) {
+			    border-right: none;
+			}
+			.top-nav {
+			    position: fixed;
+			    top: 0px;
+			    height: 50px;
+			    width: 100%;
+			    z-index: 9999;
+			    background: #000;
+			}
+			.top-nav .icon-back {
+			    position: absolute;
+			    top: 14px;
+			    left: 10px;
+			    width: 23px;
+			    height: 23px;
+			    background: url(img/icon-back.png);
+			    background-size: contain ;
+			}
+			.nav-title {
+				position: absolute;
+				top: 16px;
+				left: 42px;
+				color: #d5d5d6;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root" class="container">
+		    <div class="m-artical-action">
+		        <div id="action-mid" class="artical-action-mid">
+		            
+		        </div>
+		    </div>  
+		    <!--顶部导航-->
+		    <div id="top-nav" class="top-nav">
+		       <div class="icon-back"> </div>
+		       <div class="nav-title">返回 </div>
+		           
+		       
+		    </div>
+		    <div id="fiction_chapter_title">
+		        
+		    </div>
+		    <div id="fiction_container" class="m-read-content">
+		        <h4>第一章 武魂</h4>
+				<p>
+					旭日东升，空气中依旧残留着一丝清晨的清冷之气，但是勤快的叶家村居民，已经早早起来开始工作了，即便是六七岁的稚童，也都在父母的催促下，开始了一天的晨练。
+				</p>
+				<p>
+					在村东的那片空地上，一群大小不一的孩子，正在三个兽皮粗布壮汉的吆喝下，排列成了十个整整齐齐的队伍，足足有一百多人。
+				</p>
+				<p>
+					早晨温暖的阳光洒落在这些孩子的脸上，洋溢的是一张张稚嫩的面孔，以及蓬勃的朝气。
+				</p>
+				<p>
+					“想要成为一名强大的武者，必须要从小刻苦锻炼，懒惰的人，是不可能成为武者的，就算侥幸成为武者，也不会有太大的成就。”
+				</p>
+				<p>
+					一个中年男子从三个兽皮粗布壮汉的身边走过，来到这些孩子面前，他背负着双手，犀利的目光扫过这群孩子，冷然说道。
+				</p>
+				<p>
+					这是叶家村猎兽队的队长，也是村里孩子们的启蒙导师——叶锋。
+				</p>
+				<p>
+					“你们都是普普通通的农村人，不可能像城里富家子弟那样从小就有无数珍贵的灵丹药材温养身体。想要成为一名强大的武者，想要出人头地，刻苦训练，锻炼身体，是你们唯一的方法，听到没有！”
+				</p>
+				<p>
+					叶锋冰冷的目光扫过这群孩子，吓得孩子们身体一颤，连忙一起响亮地吼道：“听到了！”
+				</p>
+				<p>
+					“很好，开始训练！”叶锋满意地点了点头，将剩下的训练工作，交给了旁边那三个兽皮粗布壮汉，作为叶家村猎兽队的队长，他每天都要带着村里的猎手进山去猎杀凶兽，储存过冬的食物。
+				</p>
+				<p>
+					“狠狠操练这帮小兔崽子们，别让他们偷懒！”叶锋对着三个兽皮粗布壮汉说道。
+				</p>
+		    </div>
+            <div class="m-button-bar">
+                <ul class="u-tab">
+                    <li id="prev_button">上一章</li>
+                    <li id="next_button">下一章</li>
+                </ul>
+            </div>		    
+		</div>
+		<script src="lib/zepto.min.js"></script>
+		<script>
+			window.jQuery = $;
+		</script>
+		<script src="js/jquery.base64.js"></script>
+		<script src="js/jquery.jsonp.js"></script>
+
+		<script>
+			
+		</script>
+	</body>
+</html>
