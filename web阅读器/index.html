@@ -6,368 +6,607 @@
 		<meta name="format-detection" content="telephone=no">
 		<link rel="stylesheet" href="css/reset.css">
 		<style type="text/css">
-		    html {
-		        width: 100%;
+			html {
+				width: 100%;
 				height: 100%;
 				overflow-x: hidden;
-		    }
+			}
 			body {
-			    text-align: left;
-			    width: 100%;
-			    overflow: hidden;
-			    background: #e9dfc7;
+				text-align: left;
+				width: 100%;
+				-webkit-tap-highlight-color: rgba(0,0,0,.05);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				background: #e9dfc7;
+				overflow: hidden;
 			}
 			.m-read-content {
-			  font-size: 14px; 
-			  color: #555;
-			  line-height: 31px;
-			  padding: 15px;
-                			  
+				font-size: 14px;
+				color: #555;
+				line-height: 31px;
+				padding: 15px;
 			}
 			.m-read-content h4 {
-			    font-size: 20px;
-			    color: #736357;
-			    border-bottom: 1px solid #736357;
-			    letter-spacing: 2px;
-			    margin: 0 0 1em 0;
+				font-size: 20px;
+				color: #736357;
+				border-bottom: solid 1px #736357;
+				margin: 0 0 1em 0;
+				letter-spacing: 2px;
 			}
+
 			.m-read-content p {
-			    text-indent: 2em;
-			    margin: 0.5em 0;
-			    letter-spacing: 0px;
-			    line-height: 24px;
+				text-indent: 2em;
+				margin: 0.5em 0;
+				text-align: justify;
+				letter-spacing: 0px;
+				line-height: 24px;
 			}
-			.m-button-bar {
-			    width: 70%;
-			    max-width: 800px;
-			    padding: 5px;
-			    margin: 0 auto;
+			.artical-action-top {
+				position: fixed;
+				top: 0px;
+				height: 30%;
+				width: 100%;
+				z-index: 90;
 			}
-			.m-button-bar .u-tab {
-			    height: 34px;
-			    margin: 10px auto;
-			    line-height: 34px;
-			    border-radius: 8px;
-			    border: 1px solid #858382;
-			    font-size: 12px;
-			    background: #000;
-			    opacity: 0.9;
+			.artical-action-mid {
+				position: fixed;
+				top: 30%;
+				height: 40%;
+				width: 100%;
+				z-index: 10002;
 			}
-			.m-button-bar .u-tab li {
-			    display: inline-block;
-			    width: 49%;
-			    border-right: 1px solid #858382;
-			    text-align: center;
-			    color: #fff;
+			.artical-action-bottom {
+				position: fixed;
+				bottom: 0px;
+				height: 30%;
+				width: 100%;
+				z-index: 90;
 			}
-			.m-button-bar .u-tab li:nth-child(2) {
-			    border-right: none;
+			.m-tool-bar {
+				text-align: center;
+				width: 100%;
+				height: 40px;
+				position: fixed;
+				bottom: 0px;
+				z-index: 10000;
+			}
+			.m-tool-bar-mask {
+				text-align: center;
+				width: 100%;
+				height: 40px;
+				position: fixed;
+				bottom: 0px;
+				z-index: 9999;
+				background: #000;
+				opacity: .9;
+			}
+			.menu-mask {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 9999;
+				background: #000;
+				opacity: .8;
+				top: 0px
+			}
+			.m-tool-button {
+				padding: 5px 15px;
+				margin-top: 7px;
+				border: 1px #fff solid;
+				background: transparent;
+				color: #fff
 			}
 			.top-nav {
-			    position: fixed;
-			    top: 0px;
-			    height: 50px;
-			    width: 100%;
-			    z-index: 9999;
-			    background: #000;
+				position: fixed;
+				top: 0px;
+				height: 50px;
+				background: #000;
+				width: 100%;
+				opacity: 1;
+				z-index: 10004
 			}
-			.top-nav .icon-back {
-			    position: absolute;
-			    top: 14px;
-			    left: 10px;
-			    width: 23px;
-			    height: 23px;
-			    background: url(img/icon-back.png);
-			    background-size: contain ;
+			.top-nav-warp {
+				position: relative;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.top-nav-pannel-bk {
+				position: fixed;
+				bottom: 70px;
+				height: 135px;
+				background: #000;
+				width: 100%;
+				color: #fff;
+				opacity: 0.9;
+				z-index: 10003
+			}
+			.top-nav-pannel {
+				position: fixed;
+				bottom: 70px;
+				height: 135px;
+				background: none;
+				width: 100%;
+				color: #fff;
+				z-index: 10004
+			}
+			.top-nav-pannel button {
+				background: none;
+				border: 1px #8c8c8c solid;
+				padding: 5px 40px;
+				color: #fff;
+				display: inline-block;
+				border-radius: 16px;
+			}
+			.top-nav-pannel .bk-container {
+				position: relative;
+				height: 30px;
+				width: 30px;
+				background: #fff;
+				border-radius: 15px;
+				display: inline-block;
+				vertical-align: -14px;
+				margin-left: 10px;
+			}
+			.top-nav-pannel .bk-container-current {
+				position: absolute;
+				height: 32px;
+				width: 32px;
+				border-radius: 16px;
+				display: inline-block;
+				vertical-align: -14px;
+				margin-left: 10px;
+				border: 1px #ff7800 solid;
+				top: -2px;
+				left: -12px;
+			}
+			.top-nav-pannel .bk-container span {
+				position: absolute;
+				top: 32px;
+				left: -8px;
+				display: block;
+				font-size: 12px;
+				width: 40px;
+			}
+			.bottom-nav-bk {
+				position: fixed;
+				bottom: 0px;
+				height: 70px;
+				background: #000;
+				width: 100%;
+				opacity: .9;
+				z-index: 10004
+			}
+
+			.bottom-nav {
+				position: fixed;
+				bottom: 0px;
+				height: 70px;
+				background: none;
+				width: 100%;
+				opacity: 1;
+				z-index: 10004;
+				margin: 0 auto;
+				text-align: center
+			}
+			.bottom-nav .item {
+				display: inline-block;
+				width: 32%;
+				color: #fff;
+				text-align: center;
+				margin: 0 auto;
+			}
+
+			.m-button-bar {
+				text-align: center;
+				font-size: 14px;
+				padding: 5px;
+				margin: 10px;
+				max-width: 900px;
+				margin: 0 auto;
+				width: 70%
+			}
+			.m-button-bar button {
+				background: none;
+				border: 1px #000 solid;
+				padding: 5px 10px;
 			}
 			.nav-title {
 				position: absolute;
 				top: 16px;
 				left: 42px;
-				color: #d5d5d6;
+				color: #d5d5d6
 			}
-		.changeDay-night {
-				display: inline-block;
-					margin: 15px 0 0 0;
-					width: 30%;
-					
-			}
-			.bottom-nav {
-			    
-			    position: fixed;
-			    bottom: 0px;
-			    height: 100px;
-			    width: 100%;
-			    padding-left: 5px;
-			    z-index: 9999;
-			    background: #000;
-			}
-			
-			.bottom-nav .menu {
-                margin: 10px 0 0 0;
-				display: inline-block;
-			     
-			    width: 30%;
-			    text-align: center;
-			}
-			.bottom-nav .menu-icon {
-			   	margin: 0 auto;
-			    width: 23px;
-			    height: 22px;
-			    background: url(img/icon-menu.png) no-repeat center;
-			    background-size: contain ;
-			}
-			.bottom-nav  .menu-title {
-			    margin: 5px 0 0 0;
-			    color: #d5d5d6;
-			}
-			/*-----------------------*/
-			.bottom-nav .font-set {
-			    margin: 10px 0 0 0;
-				text-align: center;
-				display: inline-block;
-			   
-			    width: 30%;
-			
-
-			}
-			.bottom-nav  ul .font-set-icon {
-			    margin: 0 auto;
-			    width: 23px;
-			    height: 22px;
-			    background: url(img/icon-font.png) no-repeat;
-			    background-size: contain ;
-			}
-			.bottom-nav  ul .font-set-title {
-			    margin: 5px 0 0 0;
-			    color: #d5d5d6;
-			}
-
-			/*-----------------------*/
-			.changeDay-night {
-				display: inline-block;
-					margin: 15px 0 0 0;
-					width: 30%;
-					
-			}
-			.bottom-nav .day-night1 {
-				text-align: center;
-				display: inline-block;
-			}
-			.bottom-nav .day-night2 {
-				text-align: center;
-				display: inline-block;
-				display: none;
-			}
-			.bottom-nav .day-night-icon1 {
-			    margin: 0 auto;
-			    width: 23px;
-			    height: 22px;
-
-			    background: url(img/icon-day.png) no-repeat;
-			    background-size: contain ;
-			}
-			.bottom-nav .day-night-title1 {
-
-				
-			    margin: 5px 0 0 0;
-			    color: #d5d5d6;
-			}
-			.bottom-nav .day-night-icon2 {
-			    margin: 0 auto;
-			    width: 23px;
-			    height: 22px;
-			    background: url(img/icon-night.png) no-repeat;
-			    background-size: contain ;
-			}
-			.bottom-nav .day-nightt-title2 {
-			    margin: 5px 0 0 0;
-			    color: #d5d5d6; 
-			}
-
-
-
-			/*------------*/
-			.nav-pannel-bk {
-				position: fixed;
-				bottom: 70px;
-				height: 135px;
-				width: 100%;
-				background: #000;
-				opacity: 0.9;
-				z-index: 10003;
-			}
-			.nav-pannel {
-				position: fixed;
-				bottom: 70px;
-				height: 135px;
-				width: 100%;
+			.top-nav button {
+				width: 65px;
+				font-size: 12px;
 				background: none;
-				color: #fff;
-				z-index: 10004;
-			}
-			.nav-pannel .child-mod {
+				border: 1px #d5d5d6 solid;
 				padding: 5px 10px;
-				margin: 15px;
+				color: #d5d5d6;
+				position: absolute;
+				top: 11px;
+				border-radius: 16px 0 0 16px;
+				opacity: 0.9
 			}
-			.nav-pannel .child-mod span {
+
+			.child-mod {
+				padding: 5px 10px;
+				margin-top: 15px
+			}
+			.child-mod span {
 				display: inline-block;
 				padding-right: 20px;
 				padding-left: 10px;
 			}
-			.nav-pannel .child-mod .font-size-button {
-				background: none;
-				border: 1px #8c8c8c solid;
-				color: #fff;
-				border-radius: 16px;
-				padding: 5px 40px;
-				outline: none;
+			.large-font p {
+				font-size: 18px
 			}
-			.child-mod button:nth-child(2) {
-				margin-right: 10px;
+			.small-font p {
+				font-size: 14px
 			}
-			.bk-container {
-				position: relative;
-				width: 30px;
-				height: 30px;
-				border-radius: 15px;
-				display: inline-block;
-				vertical-align: middle;
-				margin-right: 5px;
-			}
-			.bk-container-bg1{
-				background-color: #e9dfc7;
-			}
-			.bk-container-bg2{
-				background-color: #fff;
-			}
-			.bk-container-bg3{
-				background-color: #a4a4a4;
-			}
-			.bk-container-bg4{
-				background-color: #cdefce;
-			}
-			.bk-container-bg5{
-				background-color: #283548;
-			}
-			.bk-container .bk-container-current {
-				position: absolute;
-				top: -2px;
-				left: -2px;
-				width: 32px;
-				height: 32px;
-				border-radius: 16px;
-				border: 1px #ff7800 solid;
-				display: inline-block;
-			}
-			.artical-action-mid {
+			.menu-container {
+				height: 60%;
 				position: fixed;
-				z-index: 10002;
+				bottom: 0px;
 				width: 100%;
-				height: 40%;
-				top: 30%;
+				overflow: scroll;
+				background: #fff;
+				display: block;
+				z-index: 19999
+			}
+			.chapter-list {
+				text-align: left;
+			}
+			.chapter-list li {
+				padding: 15px;
+			}
+			.chapter-list li:nth-child(2n-1) {
+				background-color: #ededed
+			}
+			.chapter-list li:nth-child(2n) {
+				background-color: #e6e6e6
+			}
+			.chapter-list .free {
+				float: right;
+			}
+			.free {
+				color: #459c3a;
+			}
+			.loading {
+				position: fixed;
+				text-align: center;
+				width: 100%;
+				top: 40%;
+				color: #fff;
+				z-index: 199999
+			}
+			.u-tab {
+				position: relative;
+				height: 34px;
+				margin: 10px auto;
+				line-height: 34px;
+				border-radius: 8px;
+				border: 1px solid #858382;
+				font-size: 13px;
+				background: #000;
+				opacity: 0.9;
+			}
+			.u-tab li {
+				display: inline-block;
+				width: 49%;
+				font-size: 13px;
+				border-right: 1px solid #858382;
+				-webkit-box-sizing: border-box;
+				text-align: center;
+				color: #fff;
+			}
+			.mask {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: 12000;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				opacity: .4;
+				background: #000;
+			}
+
+			.buy-mask {
+				height: 100%;
+				width: 100%;
+				position: fixed;
+				top: 0px;
+				text-align: center;
+				margin: 0 auto;
+				display: none;
+				z-index: 10001;
+				background: #e9dfc7;
+			}
+			.icon-back {
+				position: absolute;
+				top: 14px;
+				left: 10px;
+				width: 23px;
+				height: 23px;
+				background: url();
+				background-size: contain;
+			}
+			.icon-text {
+				position: absolute;
+				top: 25px;
+				font-size: 10px;
+			}
+			.icon-menu, .icon-ft, .icon-night, .icon-day {
+				position: absolute;
+				top: 3px;
+				left: 2px;
+				width: 18px;
+				height: 13px;
+				background: url();
+				background-size: contain;
+			}
+			.icon-night, .icon-day, .icon-ft {
+				left: 1px;
+			}
+			.icon-ft {
+				width: 20px;
+				height: 13px;
+				background: url();
+				background-size: contain;
+			}
+
+			.current .icon-ft {
+				top: 2px;
+				left: 0px;
+				width: 22px;
+				height: 15px;
+				background: url();
+				background-size: contain;
+			}
+
+			.icon-day {
+				width: 19px;
+				height: 18px;
+				background: url();
+				background-size: contain;
+			}
+
+			.icon-night {
+				left: 4px;
+				width: 16px;
+				height: 16px;
+				background: url();
+				background-size: contain;
+			}
+
+			.item-warp {
+				width: 26px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.loading-icon {
+				margin: 0 auto;
+				margin-top: 50%;
+				background: url();
+				width: 20px;
+				height: 20px;
+			}
+			.loading-mask {
+				text-align: center;
+				margin: 0 auto;
+				width: 100%;
+				height: 100%;
+				background: #000;
+				opacity: 0.1;
+				position: fixed;
+				top: 0px;
+			}
+
+			.buy-container {
+				width: 100%;
+				position: fixed;
+				top: 20%;
+				text-align: center;
+				margin: 0 auto;
+				display: none;
+				z-index: 10003
+			}
+			.buy-container h3 {
+				font-weight: normal;
+				line-height: 30px;
+				font-family: microsoft yahei, arial, helvetica, sans-serif
+			}
+			.buy-container h2 {
+				padding-bottom: 80px;
+			}
+
+			.buy-container button {
+				font-family: microsoft yahei, arial, helvetica, sans-serif;
+				font-size: 14px;
+				height: 40px;
+				line-height: 40px;
+				border: none;
+				color: #fff;
+				padding: 0 10px;
+				width: 160px;
+				background: #4a90b1;
+				margin-top: 10px;
+			}
+
+			.m-read-content {
+				min-height: 300px;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.buy-popup-frame {
+				display: none;
+				position: fixed;
+				bottom: 0px;;
+				left: 0px;
+				width: 100%;
+				height: 266px;
+				z-index: 39999
 			}
 		</style>
 	</head>
 	<body>
-		<div id="root" class="container">
-		    <div class="m-artical-action">
-		        <div id="action-mid" class="artical-action-mid">
-		            
-		        </div>
-		    </div>  
-		    <!--顶部导航-->
-		    <div id="top-nav" class="top-nav">
-		       <div class="icon-back"></div>
-		       <div class="nav-title">返回书架</div>
-		    </div>
-		    <div id="fiction_chapter_title">
-		        
-		    </div>
-		    <div id="fiction_container" class="m-read-content">
-		        <h4>第一章 武魂</h4>
-				<p>
-					旭日东升，空气中依旧残留着一丝清晨的清冷之气，但是勤快的叶家村居民，已经早早起来开始工作了，即便是六七岁的稚童，也都在父母的催促下，开始了一天的晨练。
-				</p>
-				<p>
-					在村东的那片空地上，一群大小不一的孩子，正在三个兽皮粗布壮汉的吆喝下，排列成了十个整整齐齐的队伍，足足有一百多人。
-				</p>
-				<p>
-					早晨温暖的阳光洒落在这些孩子的脸上，洋溢的是一张张稚嫩的面孔，以及蓬勃的朝气。
-				</p>
-				<p>
-					“想要成为一名强大的武者，必须要从小刻苦锻炼，懒惰的人，是不可能成为武者的，就算侥幸成为武者，也不会有太大的成就。”
-				</p>
-				<p>
-					一个中年男子从三个兽皮粗布壮汉的身边走过，来到这些孩子面前，他背负着双手，犀利的目光扫过这群孩子，冷然说道。
-				</p>
-				<p>
-					这是叶家村猎兽队的队长，也是村里孩子们的启蒙导师——叶锋。
-				</p>
-				<p>
-					“你们都是普普通通的农村人，不可能像城里富家子弟那样从小就有无数珍贵的灵丹药材温养身体。想要成为一名强大的武者，想要出人头地，刻苦训练，锻炼身体，是你们唯一的方法，听到没有！”
-				</p>
-				<p>
-					叶锋冰冷的目光扫过这群孩子，吓得孩子们身体一颤，连忙一起响亮地吼道：“听到了！”
-				</p>
-				<p>
-					“很好，开始训练！”叶锋满意地点了点头，将剩下的训练工作，交给了旁边那三个兽皮粗布壮汉，作为叶家村猎兽队的队长，他每天都要带着村里的猎手进山去猎杀凶兽，储存过冬的食物。
-				</p>
-				<p>
-					“狠狠操练这帮小兔崽子们，别让他们偷懒！”叶锋对着三个兽皮粗布壮汉说道。
-				</p>
-		    </div>
-            <div class="m-button-bar">
-                <ul class="u-tab">
-                    <li id="prev_button">上一章</li>
-                    <li id="next_button">下一章</li>
-                </ul>
-            </div>
-            <div class="bottom-nav">
-               <ul class="menu">
-                   <li class="menu-icon"></li>
-                   <li class="menu-title">目录</li>
-               </ul> 
-               <ul class="font-set">
-                   <li class="font-set-icon"></li>
-                   <li class="font-set-title">字体</li>
-               </ul>
-              <div class="changeDay-night">
-	               <ul class="day-night1">
-	                   <li class="day-night-icon1"></li>
-	                   <li class="day-night-title1">白天</li>
-	               </ul>
-	               <ul class="day-night2">
-	                   <li class="day-night-icon2"></li>
-	                   <li class="day-night-title2">夜间</li>
-	               </ul>
-               </div>
-            </div>
-            <!-- 字体面版 -->
-			<div class="nav-pannel-bk" id="font-container-bk" style="display:none;"></div>
-			<div class="nav-pannel" id="font-container" style="display:none;">
-				<div class="child-mod">
-					<span>字号</span>
-					<button id="large-font" class="font-size-button">大</button>
-					<button id="samll-font" class="font-size-button">小</button>
-				</div>
-				<div class="child-mod">
-					<span>背景</span>
-					<div class="bk-container bk-container-bg1">
-						<div class="bk-container-current"></div>
+		<div class="loading-mask" id="init_loading">
+			<div class="loading-icon"></div>
+		</div>
+		<div class="container" id="root">
+			<div id="fiction_chapter_title"></div>
+			<div class="m-artical-action">
+				<div class="artical-action-mid" id="action_mid"></div>
+			</div>
+			<div id="fiction_container" class="m-read-content"></div>
+			<div class="top-nav" id="top-nav" style="display:none">
+				<div class="top-nav-warp">
+					<div class="icon-back"></div>
+					<div class="nav-title" id="nav_title">
+						返回书架
 					</div>
-					<div class="bk-container bk-container-bg2"></div>
-					<div class="bk-container bk-container-bg3"></div>
-					<div class="bk-container bk-container-bg4"></div>
-					<div class="bk-container bk-container-bg5"></div>
 				</div>
 			</div>
+			<div class="top-nav-pannel-bk font-container" id="font-container" style="display:none"></div>
+			<div class="top-nav-pannel font-container" id="font-container" style="display:none">
+				<div class="child-mod">
+					<span>字号</span>
+					<button id="large-font" class="spe-button">
+						大
+					</button>
+					<button id="small-font" class="spe-button" style="margin-left:10px;">
+						小
+					</button>
+				</div>
+				<div class="child-mod" id="bk-container">
+					<span>背景</span>
+				</div>
+			</div>
+			<div class="m-button-bar" id="bottom_tool_bar" style="display:none;padding-bottom:70px;">
+				<ul class="u-tab" id="bottom_tool_bar_ul">
+					<li id="prev_button" >
+						上一章
+					</li>
+					<li id="next_button" style="border-right:none">
+						下一章
+					</li>
+				</ul>
+			</div>
+
+			<div class="bottom-nav-bk bottom_nav" style="display:none"></div>
+
+			<div class="bottom-nav bottom_nav" style="display:none">
+				<div class="item menu-button" id="menu_button">
+					<div class="item-warp">
+						<div class="icon-menu"></div>
+						<div class="icon-text">
+							目录
+						</div>
+					</div>
+				</div>
+				<div class="item" id="font-button">
+					<div class="item-warp">
+						<div class="icon-ft"></div>
+						<div class="icon-text">
+							字体
+						</div>
+					</div>
+				</div>
+				<div class="item" id="night-button">
+					<div class="item-warp" style="display:none" id="day_icon">
+						<div class="icon-day"></div>
+						<div class="icon-text">
+							白天
+						</div>
+					</div>
+					<div class="item-warp" id="night_icon">
+						<div class="icon-night"></div>
+						<div class="icon-text">
+							夜间
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="loading" id="loading" style="display:none">
+				正在加载中...
+			</div>
+			<div class="m-tool-bar-mask" id="tool_bar_mask" style="display:none"></div>
+			<ul class="menu-container chapter-list" id="menu_container" style="display:none"></ul>
+			<div class="menu-mask" id="menu_mask" style="display:none"></div>
+			<div class="mask" id="mask" style="display:none"></div>
 		</div>
 		<script src="lib/zepto.min.js"></script>
 		<script>
 			window.jQuery = $;
 		</script>
+		<script type="text/javascript" charset="utf-8">
+		   (function (){
+		       
+		       
+		      // todo 本地存储单元
+		       var  Util = (function(){
+		           var prefix = 'html5_reader_';
+		           var StorageGetter = function(key){
+		               return localStorage.getItem(prefix + key);
+		           }
+		           var StorageSetter = function(key,val){
+		              return localStorage.setItem(prefix + key,val);
+		           }
+		           return {
+		               StorageGetter:StorageGetter,
+		               StorageSetter:StorageSetter
+		           }
+		        })();
+		      
+		      var Dom = {
+		          top_nav:$('#top-nav'),
+		          bottom_nav:$('.bottom_nav')
+		      }
+		      
+		      function main (){
+		          //todo 整个项目的入口函数 
+		          
+		      }
+		      function ReaderModel(){
+		          //todo 实现和阅读器相关数据的交互的方法
+		      }
+    		      
+		      function ReaderBaseFrame(){
+		          //todo 渲染基本的UI结构
+		      }
+    		      
+		      function EventHanlder(){
+		          // todo 交互事假绑定
+		         $('#action_mid').click(function() {
+							if (Dom.top_nav.css('display') == 'none') {
+								Dom.bottom_nav.show();
+								Dom.top_nav.show();
+							} else {
+								Dom.bottom_nav.hide();
+								Dom.top_nav.hide();
+								font_container.hide();
+								font_button.removeClass('current');
+							}
+
+						});
+		      }
+		      
+		      
+		     
+		      
+		      main();
+		      
+		      
+		      
+		        
+		   })();
+		</script>
 		<script src="js/jquery.base64.js"></script>
+		
 		<script src="js/jquery.jsonp.js"></script>
 
 		<script>
